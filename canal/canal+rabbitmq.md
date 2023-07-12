@@ -47,8 +47,38 @@ canal.instance.dbPassword=123456
 # rabbitmq中配置的 绑定的 routingkey
 canal.mq.topic=canal_key
 ```
+### 第三步、安装rabbitmq并用创建交换机及队列
+> 这里我们直接用java代码，执行程序之前会自动创建exchange和queue并绑定它们
+```java
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-#### 第三步、创建boot项目并添加依赖
+@Configuration
+public class CanalConfig {
+
+    @Bean
+    Queue queue(){
+        return  new Queue("canal_queue");
+    }
+
+    @Bean
+    DirectExchange directExchange(){
+        return new DirectExchange("canal_exchange01");
+    }
+
+    @Bean
+    Binding binding(){
+        return BindingBuilder.bind(queue()).to(directExchange()).with("canal_key");
+    }
+}
+
+```
+
+#### 第四步、创建boot项目并添加依赖
 
 ```xml
        <!--canal依赖-->
@@ -64,7 +94,7 @@ canal.mq.topic=canal_key
         </dependency> 
 ```
 
-#### 第四步、编写rabbitmq监听器
+#### 第五步、编写rabbitmq监听器
 
 ```java
 import org.springframework.amqp.rabbit.annotation.*;
