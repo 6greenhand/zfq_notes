@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--action="/login"是一个表单元素的属性。它定义了表单数据提交的目标URL，即用户填写表单后，浏览器将会将表单数据发送到"/login"的URL。-->
+<form action="/login" method="post">
+    用户名：<input type="text" name="username" /><br/>
+    密码：<input type="password" name="password" /><br/>
+    <input type="checkbox" name="remember-me" value="true"/>记住我<br/>
+    <input type="submit" value="登录" />
+</form>
+</body>
+</html>
