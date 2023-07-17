@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lastestcar01.mapper.ModelMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.lastestcar01.domain.Model">
+            <id property="modelId" column="model_id" jdbcType="INTEGER"/>
+            <result property="modelName" column="model_name" jdbcType="VARCHAR"/>
+            <result property="brandId" column="brand_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        model_id,model_name,brand_id
+    </sql>
+</mapper>

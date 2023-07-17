@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lastestcar01.mapper.CarMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.lastestcar01.domain.Car">
+            <id property="carId" column="car_id" jdbcType="INTEGER"/>
+            <result property="displacement" column="displacement" jdbcType="DECIMAL"/>
+            <result property="registrationDate" column="registration_date" jdbcType="DATE"/>
+            <result property="price" column="price" jdbcType="DECIMAL"/>
+            <result property="mileage" column="mileage" jdbcType="DECIMAL"/>
+            <result property="clutchType" column="clutch_type" jdbcType="VARCHAR"/>
+            <result property="releaseDate" column="release_date" jdbcType="TIMESTAMP"/>
+            <result property="brandId" column="brand_id" jdbcType="INTEGER"/>
+            <result property="modelId" column="model_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        car_id,displacement,registration_date,
+        price,mileage,clutch_type,
+        release_date,brand_id,model_id
+    </sql>
+</mapper>

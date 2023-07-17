@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.221.128:3308/testcar
+    username: root
+    password: 123456
+server:
+  port: 8081
