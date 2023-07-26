@@ -14,8 +14,8 @@ Java中的动态代理提供了两个基本的接口：InvocationHandler和Proxy
 
 例子：
 
-```
-复制代码public interface UserService {
+```java
+public interface UserService {
     void addUser(String name);
 }
 
@@ -36,6 +36,7 @@ public class UserServiceProxy implements InvocationHandler {
     public Object invoke(Object proxy, Method method, 
                          Object[] args) throws Throwable {
         System.out.println("Before calling " + method.getName());
+        //执行方法
         Object result = method.invoke(target, args);
         System.out.println("After calling " + method.getName());
         return result;
